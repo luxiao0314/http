@@ -13,7 +13,7 @@ import java.io.InputStream;
  * @Date 2019-07-23 15:10
  * @Version
  */
-public abstract class DownloadResponseListener<T> implements ResponseListener<T> {
+public abstract class DownloadListener<T> implements ResponseListener<T> {
 
     private final String mDestFileDir;
     private final String mdestFileName;
@@ -27,7 +27,7 @@ public abstract class DownloadResponseListener<T> implements ResponseListener<T>
      * @param destFileDir:文件目录
      * @param destFileName：文件名
      */
-    public DownloadResponseListener(String destFileDir, String destFileName) {
+    public DownloadListener(String destFileDir, String destFileName) {
         mDestFileDir = destFileDir;
         mdestFileName = destFileName;
     }

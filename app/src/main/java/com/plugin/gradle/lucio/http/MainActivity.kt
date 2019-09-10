@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import com.ifog.timedebug.TimeDebugerManager
-import com.plugin.gradle.lucio.core.http.DownloadResponseListener
+import com.plugin.gradle.lucio.core.http.DownloadListener
 import com.plugin.gradle.lucio.core.http.Request
 import com.plugin.gradle.lucio.core.http.STSResponse
 import com.plugin.gradle.lucio.core.http.SimpleResponseListener
@@ -34,13 +34,13 @@ class MainActivity : AppCompatActivity() {
 
     fun download(v: View?) {
 //        Request.get<File>("http://oss.cdn.aiclk.com/live/app/1576673/596e62f75c05a7fd96344cebf747a2be_1576673.apk")
-//            .enqueue(object : DownloadResponseListener<File>(getStoragePath(this)?.absolutePath, "cnblogs111.apk") {
+//            .enqueue(object : DownloadListener<File>(getStoragePath(this)?.absolutePath, "cnblogs111.apk") {
 //                override fun onSuccess(content: File?) {
 //                    Log.d("onSuccess", content?.absolutePath)
 //                }
 //            })
         Request.get<File>("https://mtabc.aihuishou.com/eraser/apk/20190716173913234490695.json")
-            .enqueue(object : DownloadResponseListener<File>(getStoragePath(this)?.absolutePath, "contract.json") {
+            .enqueue(object : DownloadListener<File>(getStoragePath(this)?.absolutePath, "contract.json") {
                 override fun onSuccess(content: File?) {
                     Log.d("onSuccess", content?.absolutePath)
                 }
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
 
 //        Request.get<File>("http://oss.cdn.aiclk.com/live/app/1576673/596e62f75c05a7fd96344cebf747a2be_1576673.apk")
 //            .call(CusCall())
-//            .enqueue(object : DownloadResponseListener<File>(getStoragePath(this).absolutePath, "cnblogs222.apk") {
+//            .enqueue(object : DownloadListener<File>(getStoragePath(this).absolutePath, "cnblogs222.apk") {
 //                override fun onSuccess(content: File?) {
 //                    Log.d("onSuccess", content?.absolutePath)
 //                }
